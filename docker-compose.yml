@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    # restart: always
+    environment:
+      POSTGRES_PASSWORD: green100world
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d
+    ports:
+      - 5454:5432
+
+  adminer:
+    image: adminer
+    environment:
+      ADMINER_DESIGN: dracula
+    ports:
+      - 7777:8080
