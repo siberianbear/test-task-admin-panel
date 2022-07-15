@@ -74,6 +74,9 @@
       case "cancel":
         activateControls = false;
         cleanActiveUser = true;
+        
+        currentUser = {uid: undefined, name: '', email: '', phone: '', gender: ''};
+
         setTimeout(()=>{
           cleanActiveUser = false;
         }, 100)

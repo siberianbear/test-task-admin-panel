@@ -87,8 +87,7 @@
       return;
     }
     else {
-      document.getElementById("email").style.borderColor = 'revert'
-      document.getElementById("emailLabel").innerHTML = 'Email'
+      wipeOutWrongValidationStyles();
     }
 
 
@@ -102,8 +101,14 @@
     
   }
 
+  let wipeOutWrongValidationStyles = (): void => {
+    document.getElementById("email").style.borderColor = 'revert'
+    document.getElementById("emailLabel").innerHTML = 'Email'
+  }
+
   let cancelChanges = (e:Event):void => {
-    e.preventDefault(); 
+    e.preventDefault();
+    wipeOutWrongValidationStyles();
     sendSignal("cancel", "")
   }
 
