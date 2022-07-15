@@ -26,7 +26,7 @@ const (
 	CORS_HOST = "http://localhost:3000"
 )
 
-// ********** SETUP ***********
+// ********** end of SETUP ***********
 
 func setupDB() *sql.DB {
 	dbinfo := fmt.Sprintf("user=%s port=%d password=%s dbname=%s sslmode=disable", DB_USER, DB_PORT, DB_PASSWORD, DB_NAME)
@@ -38,6 +38,9 @@ func setupDB() *sql.DB {
 	return db
 
 }
+
+// as we need to open a connection DB only once.
+var db = setupDB()
 
 func checkErr(err error) {
 	if err != nil {
@@ -73,8 +76,6 @@ func GetAllUsers(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Methods", "GET")
 	// w.Header().Set("Access-Control-Max-Age", "600")
 	// w.Header().Set("Access-Control-Allow-Headers", "Content-Type,access-control-allow-origin, access-control-allow-headers")
-
-	db := setupDB()
 
 	// printMessage("Getting users...")
 
@@ -124,7 +125,6 @@ func RemoveUser(w http.ResponseWriter, r *http.Request) {
 	if userID == "" {
 		response = JsonResponse{Type: "error", Message: "You are missing userID parameter."}
 	} else {
-		db := setupDB()
 
 		printMessage("Deleting user from DB")
 
@@ -155,8 +155,6 @@ func EditUser(w http.ResponseWriter, r *http.Request) {
 	userID := params["userId"]
 
 	var response = JsonResponse{}
-
-	db := setupDB()
 
 	type updatedUser struct {
 		Uid    int    `json:"uid"`
