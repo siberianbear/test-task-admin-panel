@@ -28,6 +28,6 @@
 
 > yarn install (or npm install)
 
-> yarn dev
+> yarn dev (or nmp dev)
 
 ### Now click on [the Link](http://localhost:3000) and enjoy your journey :)
