@@ -1,5 +1,5 @@
 
-## test task for Faraway - Admin panel
+## Test task for Faraway - Responsive Admin panel
 ## **Svelte** with **TypeScript** (front-end) + **Golang** (back-end) + **PostgreSQL**
 
 ###
