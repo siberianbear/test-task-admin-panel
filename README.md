@@ -22,7 +22,7 @@
 
 
 
-3. **Finally Set up Frontend 👽**
+3. **Finally setting up Frontend-part 👽**
 
 > cd frontend
 
@@ -30,4 +30,4 @@
 
 > yarn dev (or nmp dev)
 
-### Now click on [the Link](http://localhost:3000) and enjoy your journey :)
+### Now click to [the Link](http://localhost:3000) and enjoy your journey :)
